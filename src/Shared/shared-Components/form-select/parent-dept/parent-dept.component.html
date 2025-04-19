@@ -1,0 +1,7 @@
+<label [for]="label" class="block mb-2 ml-1 font-mono text-xl font-medium capitalize light-text">{{label}}</label>
+<select [id]="label" #select (change)="onIdChange(+select.value)" class="text-gray-900 font-mono text-sm rounded-lg focus:ring-[#dcdde1] focus:border-[#dcdde1] block w-full p-2.5">
+    <option selected disabled>{{placeholder}}</option>
+      @for (chooise of parentDepartment; track $index) {
+        <option [value]="chooise.departmentId">{{chooise.departmentName}}</option>
+      }
+  </select>

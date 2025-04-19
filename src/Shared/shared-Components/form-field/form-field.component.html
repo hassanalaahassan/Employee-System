@@ -1,0 +1,32 @@
+<div>
+  <label [for]="label" class="block mb-2 ml-1 font-mono text-xl font-medium capitalize light-text">{{label}}</label>
+  <input [type]="type" [name]="label" [id]="label" class="font-mono smooth text-gray-900 text-sm rounded-lg block w-full p-2.5" [placeholder]="placeholder"
+  [ngClass]="{'error': (touched && required) || (touched && minLen) || (touched && email)}"
+  [formControl]="controlName"
+  >
+</div>
+<div class="errors flex flex-col md:flex-row md:items-center gap-2 mt-2">
+
+  <div class="required flex items-center gap-1">
+    <img [src]="requiredImage()" class="w-[18px] md:w-[24px]" alt="check">
+    <p [ngClass]="requiredClass" class="text-xs md:text-base">
+      {{label}} is Required
+    </p>
+  </div>
+  <div class="email flex items-center gap-1" *ngIf="email!==undefined">
+    <img [src]="emailImage()" class="w-[18px] md:w-[24px]" alt="check">
+    <p [ngClass]="emailClass" class="text-xs md:text-base">
+      {{label}} Must be In Formatting Email
+    </p>
+  </div>
+  <div class="password flex items-center gap-1" *ngIf="minLen!==undefined">
+    <img [src]="minLenImage()" class="w-[18px] md:w-[24px]" alt="check">
+    <p [ngClass]="minLenClass" class="text-xs md:text-base">
+      {{label}} At Least Contain 6 Charcter
+    </p>
+  </div>
+
+
+</div>
+
+<!-- // -->

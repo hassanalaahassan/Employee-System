@@ -1,0 +1,45 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left rtl:text-right">
+      <thead class="text-xs md:text-base dark-text uppercase bg-violet-50">
+          <tr>
+              @for (head of tableHeader; track $index) {
+                <th scope="col" class="p-2 md:px-6 md:py-3">
+                  {{head}}
+                </th>
+              }
+              <th scope="col" class="px-6 py-3">
+                  <span class="sr-only">Edit</span>
+              </th>
+          </tr>
+      </thead>
+      <tbody class="font-mono font-semibold">
+        @for (employee of employees; track $index) {
+          <tr class="bg-white border-b border-gray-200 dark-text transition-all hover:text-[#a29bfe] hover:bg-[#3b3a5c]">
+            <th scope="row" class="p-2 md:px-6 md:py-4 capitalize whitespace-nowrap">
+                {{employee.employeeName}}
+            </th>
+            <td class="p-2 md:px-6 md:py-4 capitalize">
+                {{employee.emailId}}
+            </td>
+            <td class="p-2 md:px-6 md:py-4 capitalize">
+              {{this.getEmpDepartment(employee.deptId)}}
+            </td>
+            <td class="p-2 md:px-6 md:py-4 capitalize">
+                {{employee.contactNo}}
+            </td>
+            <td class="p-2 md:px-6 md:py-4 capitalize">
+                {{employee.gender}}
+            </td>
+            <td class="p-2 md:px-6 md:py-4 text-right flex gap-2 flex-col md:flex-row">
+                <a href="#" class="font-medium ">
+                  <img src="assets/Images/General/Icons/edit.svg"  class="min-w-[18px] md:min-w-[24px] " alt="edit">
+                </a>
+                <a (click)="removeEmployee(employee)" class="font-medium ">
+                  <img src="assets/Images/General/Icons/delete.svg" class="min-w-[18px] md:min-w-[24px] " alt="edit">
+                </a>
+            </td>
+          </tr>
+        }
+      </tbody>
+  </table>
+</div>

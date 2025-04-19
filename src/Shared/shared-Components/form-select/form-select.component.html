@@ -1,0 +1,21 @@
+<label [for]="label" class="block mb-2 ml-1 font-mono text-xl font-medium capitalize light-text">{{label}}</label>
+<select [id]="label"
+ class="text-gray-900 font-mono text-sm rounded-lg focus:ring-[#dcdde1] focus:border-[#dcdde1] block w-full p-2.5"
+ [formControl]="controlName"
+
+ >
+    <option selected value="">{{placeholder}}</option>
+      @if(childDepartment){
+        @for (chooise of childDepartment; track $index) {
+          <option [value]="chooise.childDeptId">{{chooise.departmentName}}</option>
+          }
+          @empty {
+            <option value="" disabled>No Child Department There</option>
+          }
+      }
+      @else {
+        @for (chooise of chooices; track $index) {
+          <option [value]="chooise">{{chooise}}</option>
+          }
+      }
+</select>

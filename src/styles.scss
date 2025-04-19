@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --main-color:#2c2c54;
+  --light-color:#a29bfe;
+  --hover-color:#000000;
+}
+
+
+.dark-text{
+  color: var(--main-color);
+}
+.bg-dark{
+  background-color: var(--main-color);
+}
+.light-text{
+  color: var(--light-color);
+}
+.bg-light{
+  background-color: var(--light-color);
+}
+.bg-hover{
+  background: var(--hover-color);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light!important;
+  }
+}
